@@ -142,15 +142,20 @@ struct TaskFormView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            // Preview for adding a new task (empty form)
-            TaskFormView()
-                .previewDisplayName("Add New Task")
+            NavigationStack {
+                // Preview for adding a new task (empty form)
+                TaskFormView()
+                    .previewDisplayName("Add New Task")
+
+            }
             
             // Preview for editing existing task (pre-filled form)
-            TaskFormView(task: sampleTask)
-                .previewDisplayName("Edit Existing Task")
+            NavigationStack {
+                TaskFormView(task: sampleTask)
+                    .previewDisplayName("Edit Existing Task")
+            }
         }
-        .environment(\.modelContext, previewModelContext)  // Provide preview context
+        .environment(\.modelContext, previewModelContext)
     }
     
    
