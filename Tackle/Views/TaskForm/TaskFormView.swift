@@ -37,11 +37,25 @@ struct TaskFormView: View {
             }
             
             Section("Schedule") {
-                DatePicker("Due Date", selection: Binding($dueDate, replacingNilWith: Date()), displayedComponents: [.date, .hourAndMinute])
-                    .environment(\.locale, Locale.current)
+                VStack(alignment: .leading, spacing: 4) {
+                    DatePicker("Due Date", selection: Binding($dueDate, replacingNilWith: Date()), displayedComponents: [.date, .hourAndMinute])
+                        .environment(\.locale, Locale.current)
+                    
+                    Text("The deadline by which you want to complete this task.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .padding(.bottom, 8)
+                }
                 
-                Stepper(value: Binding($goalWeek, replacingNilWith: Calendar.current.currentWeekNumber), in: 1...52) {
-                    Text("Goal week: \(goalWeek ?? 0)")
+                VStack(alignment: .leading, spacing: 4) {
+                    Stepper(value: Binding($goalWeek, replacingNilWith: Calendar.current.currentWeekNumber), in: 1...52) {
+                        Text("Goal week: \(goalWeek ?? 0)")
+                    }
+                    
+                    Text("Associate this task with a specific week number (1-52) for you weekly goals.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+
                 }
             }
             
