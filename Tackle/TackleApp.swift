@@ -3,6 +3,9 @@ import SwiftUI
 
 @main
 struct TackleApp: App {
+    
+    @State private var navigationManager: NavigationManager = .init()
+    
     var sharedModelContainer: ModelContainer = {
         do {
             let schema = Schema([TaskModel.self])
@@ -15,8 +18,9 @@ struct TackleApp: App {
     
     var body: some Scene {
         WindowGroup {
-            TaskListView()
+            RootView()
         }
         .modelContainer(sharedModelContainer)
+        .environment(navigationManager)
     }
 }

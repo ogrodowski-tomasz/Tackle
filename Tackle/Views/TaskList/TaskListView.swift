@@ -24,6 +24,6 @@ struct TaskListView: View {
 }
 
 #Preview {
-    return TaskListView()
+    TaskListView()
         .modelContainer(.preview)
 }
