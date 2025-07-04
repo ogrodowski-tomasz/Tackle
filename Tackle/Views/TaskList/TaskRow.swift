@@ -52,6 +52,19 @@ struct TaskRow: View {
         .padding(.vertical, 6)
         .opacity(task.isCompleted ? 0.5 : 1.0)
         .contentShape(.rect)
+        .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+            Button {
+                task.isCompleted.toggle()
+                task.updatedAt = Date()
+            } label: {
+                if task.isCompleted {
+                    Label("Mark Incomplete", systemImage: "xmark.circle")
+                } else {
+                    Label("Mark Complete", systemImage: "checkmark.circle")
+                }
+            }
+            .tint(task.isCompleted ? .orange : .green)
+        }
     }
 }
 
