@@ -1,17 +1,22 @@
-//
-//  TackleApp.swift
-//  Tackle
-//
-//  Created by itcraft on 04/07/2025.
-//
-
+import SwiftData
 import SwiftUI
 
 @main
 struct TackleApp: App {
+    var sharedModelContainer: ModelContainer = {
+        do {
+            let schema = Schema([TaskModel.self])
+            let config = ModelConfiguration("TaskDatabase", schema: schema)
+            return try ModelContainer(for: schema, configurations: [config])
+        } catch {
+            fatalError("Failed to initialize SwiftData container: \(error)")
+        }
+    }()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TaskListView()
         }
+        .modelContainer(sharedModelContainer)
     }
 }
