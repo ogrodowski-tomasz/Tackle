@@ -10,7 +10,7 @@ extension ModelContainer {
             let config = ModelConfiguration("PreviewContainer", schema: schema, isStoredInMemoryOnly: true)
             let container = try ModelContainer(for: schema, configurations: [config])
             
-            TaskModel.examples.forEach {
+            TaskModel.previewTasks.forEach {
                 container.mainContext.insert($0)
             }
             return container
