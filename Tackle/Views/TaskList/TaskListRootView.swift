@@ -6,7 +6,7 @@ struct TaskListRootView: View {
         @Bindable var navigationManager = navigationManager
         NavigationStack(path: $navigationManager.taskPath) {
             TaskListView()
-                .navigationTitle(navigationManager.navigationTitle)
+                .tackleNavigationDestination()
         }
     }
 }

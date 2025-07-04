@@ -2,7 +2,7 @@ import SwiftData
 import SwiftUI
 
 struct TaskListView: View {
-    
+    @Environment(NavigationManager.self) var navigationManager
     @Query var tasks: [TaskModel]
     
     #warning("TODO: Requires testing")
@@ -26,6 +26,19 @@ struct TaskListView: View {
         List {
             ForEach(sortedTasks) { task in
                 TaskRow(task: task)
+                    .onTapGesture {
+                        navigationManager.navigate(to: .taskForm(task: task), in: .tasks)
+                    }
+            }
+        }
+        .navigationTitle("Tasks")
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    navigationManager.navigate(to: .taskForm(task: nil), in: .tasks)
+                } label: {
+                    Image(systemName: "plus")
+                }
             }
         }
     }

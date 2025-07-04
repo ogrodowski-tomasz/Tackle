@@ -6,7 +6,7 @@ struct SettingsRootView: View {
         @Bindable var navigationManager = navigationManager
         NavigationStack(path: $navigationManager.settingsPath) {
             SettingsView()
-                .navigationTitle(navigationManager.navigationTitle)
+                .tackleNavigationDestination()
         }
     }
 }

@@ -45,20 +45,10 @@ enum TabType: Identifiable, Hashable, CaseIterable {
 }
 
 enum AppRoute: Hashable {
+    case taskForm(task: TaskModel?)
     case taskDetails(id: String)
     case statisticsDetails
     case settingsAbout
-    
-    var navigationTitle: String {
-        switch self {
-        case .taskDetails:
-            "Task details"
-        case .statisticsDetails:
-            "Statistics Details"
-        case .settingsAbout:
-            "About"
-        }
-    }
 }
 
 @Observable
@@ -90,17 +80,6 @@ class NavigationManager {
             statisticsPath.removeAll()
         case .settings:
             settingsPath.removeAll()
-        }
-    }
-    
-    var navigationTitle: String {
-        switch selectedtab {
-        case .tasks:
-            return taskPath.last?.navigationTitle ?? "Tasks"
-        case .statistics:
-            return statisticsPath.last?.navigationTitle ?? "Statistics"
-        case .settings:
-            return settingsPath.last?.navigationTitle ?? "Settings"
         }
     }
 }

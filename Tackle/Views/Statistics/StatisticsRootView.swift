@@ -6,7 +6,7 @@ struct StatisticsRootView: View {
         @Bindable var navigationManager = navigationManager
         NavigationStack(path: $navigationManager.statisticsPath) {
             StatisticsView()
-                .navigationTitle(navigationManager.navigationTitle)
+                .tackleNavigationDestination()
         }
     }
 }
