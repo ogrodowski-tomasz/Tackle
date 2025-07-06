@@ -10,7 +10,11 @@ struct TackleApp: App {
         do {
             let schema = Schema([TaskModel.self])
             let config = ModelConfiguration("TaskDatabase", schema: schema)
-            return try ModelContainer(for: schema, configurations: [config])
+            let container = try ModelContainer(for: schema, configurations: [config])
+//            TaskModel.mockTasks.forEach {
+//                container.mainContext.insert($0)
+//            }
+            return container
         } catch {
             fatalError("Failed to initialize SwiftData container: \(error)")
         }

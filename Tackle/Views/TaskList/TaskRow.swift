@@ -69,5 +69,5 @@ struct TaskRow: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    TaskRow(task: TaskModel.previewTasks.first!)
+    TaskRow(task: TaskModel.mockTasks.first!)
 }

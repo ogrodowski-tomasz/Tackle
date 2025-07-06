@@ -50,119 +50,49 @@ class TaskModel {
 }
 
 extension TaskModel {
-    static var previewTasks: [TaskModel] {
-        [
-            TaskModel(
-                title: "Submit job application",
-                details: "Update resume, write cover letter and apply to Apple.",
-                isCompleted: false,
-                createdAt: Date().addingTimeInterval(-86400),
-                dueDate: Date().addingTimeInterval(3600 * 24),
-                goalWeek: 27,
-                synced: true,
-                updatedAt: Date(),
-                priority: .high
-            ),
-            TaskModel(
-                title: "Grocery shopping",
-                details: "Milk, eggs, bread, veggies",
-                isCompleted: true,
-                createdAt: Date().addingTimeInterval(-3600 * 48),
-                dueDate: nil,
-                goalWeek: nil,
-                synced: true,
-                updatedAt: Date().addingTimeInterval(-3600),
-                priority: .high
-            ),
-            TaskModel(
-                title: "Design portfolio app",
-                details: "Implement SwiftUI navigation and Firebase integration",
-                isCompleted: false,
-                createdAt: Date().addingTimeInterval(-3600 * 72),
-                dueDate: Date().addingTimeInterval(3600 * 72),
-                goalWeek: 28,
-                synced: false,
-                updatedAt: Date().addingTimeInterval(-3600 * 2),
-                priority: .low
-            ),
-            TaskModel(
-                title: "Morning workout",
-                details: nil,
-                isCompleted: false,
-                createdAt: Date(),
-                dueDate: Date().addingTimeInterval(3600 * 3),
-                goalWeek: 27,
-                synced: false,
-                updatedAt: Date(),
-                priority: .medium
-            ),
-            TaskModel(
-                title: "Weekly planning",
-                details: "Define top 3 goals for the week.",
-                isCompleted: false,
-                createdAt: Date().addingTimeInterval(-3600 * 24),
-                dueDate: Date().addingTimeInterval(3600 * 48),
-                goalWeek: 27,
-                synced: true,
-                updatedAt: Date(),
-                priority: .medium
-            ),
-            TaskModel(
-                title: "Refactor code",
-                details: "Clean up ViewModels and remove old Combine logic",
-                isCompleted: true,
-                createdAt: Date().addingTimeInterval(-3600 * 120),
-                dueDate: Date().addingTimeInterval(-3600 * 10),
-                goalWeek: 26,
-                synced: false,
-                updatedAt: Date().addingTimeInterval(-3600 * 4),
-                priority: .low
-            ),
-            TaskModel(
-                title: "Book flight tickets",
-                details: "Trip to Berlin. Check AirBnB and hotel options.",
-                isCompleted: false,
-                createdAt: Date().addingTimeInterval(-3600 * 10),
-                dueDate: Date().addingTimeInterval(3600 * 100),
-                goalWeek: nil,
-                synced: true,
-                updatedAt: Date(),
-                priority: .high
-            ),
-            TaskModel(
-                title: "Read SwiftData documentation",
-                details: "Understand migrations and constraints",
-                isCompleted: false,
-                createdAt: Date(),
-                dueDate: nil,
-                goalWeek: 28,
-                synced: false,
-                updatedAt: Date(),
-                priority: .medium
-            ),
-            TaskModel(
-                title: "Pay bills",
-                details: "Electricity, internet and rent",
-                isCompleted: true,
-                createdAt: Date().addingTimeInterval(-3600 * 72),
-                dueDate: Date().addingTimeInterval(-3600 * 5),
-                goalWeek: 27,
-                synced: true,
-                updatedAt: Date(),
-                priority: .low
-            ),
-            TaskModel(
-                title: "Team meeting",
-                details: "Discuss progress on project milestones",
-                isCompleted: false,
-                createdAt: Date(),
-                dueDate: Date().addingTimeInterval(3600 * 24 * 2),
-                goalWeek: 28,
-                synced: false,
-                updatedAt: Date(),
-                priority: .medium
-            )
-        ]
-    }
-}
+    static let mockTasks: [TaskModel] = [
+        TaskModel(title: "Buy groceries", details: "Milk, Eggs, Bread", isCompleted: false, dueDate: .now.addingTimeInterval(3600 * 24), goalWeek: 27, priority: .medium),
+        TaskModel(title: "Call Mom", isCompleted: true, dueDate: .now.addingTimeInterval(-3600 * 24), priority: .high),
+        TaskModel(title: "Write blog post", details: "About SwiftData + SwiftUI", goalWeek: 28, priority: .high),
+        TaskModel(title: "Gym workout", isCompleted: false, priority: .low),
+        TaskModel(title: "Team standup", details: "Daily at 10 AM", isCompleted: true, dueDate: .now, priority: .medium),
+        TaskModel(title: "Fix bug #412", isCompleted: false, goalWeek: 27, priority: .high),
+        TaskModel(title: "Prepare slides for Monday", dueDate: .now.addingTimeInterval(3600 * 48), priority: .high),
+        TaskModel(title: "Water the plants", isCompleted: true, priority: .low),
+        TaskModel(title: "Organize desk", priority: .medium),
+        TaskModel(title: "Read chapter 3 of Swift book", goalWeek: 28, priority: .medium),
 
+        TaskModel(title: "Submit tax report", isCompleted: false, dueDate: .now.addingTimeInterval(3600 * 24 * 3), priority: .high),
+        TaskModel(title: "Doctor appointment", dueDate: .now.addingTimeInterval(3600 * 24 * 2), priority: .high),
+        TaskModel(title: "Meditation", isCompleted: true, priority: .low),
+        TaskModel(title: "Refactor old project", isCompleted: false, priority: .medium),
+        TaskModel(title: "Research Firebase syncing", goalWeek: 29, priority: .medium),
+        TaskModel(title: "Design onboarding screen", details: "SwiftUI animations", priority: .high),
+        TaskModel(title: "Write unit tests", isCompleted: true, priority: .medium),
+        TaskModel(title: "Schedule meeting with HR", dueDate: .now.addingTimeInterval(3600 * 72), priority: .low),
+        TaskModel(title: "Read design spec", isCompleted: false, priority: .low),
+        TaskModel(title: "Publish update on TestFlight", isCompleted: true, synced: true, priority: .high),
+
+        TaskModel(title: "Stretching routine", priority: .low),
+        TaskModel(title: "Clean inbox", isCompleted: false, priority: .medium),
+        TaskModel(title: "Update LinkedIn profile", isCompleted: false, priority: .low),
+        TaskModel(title: "Weekly review", isCompleted: true, goalWeek: 27, priority: .medium),
+        TaskModel(title: "Finish reading API docs", priority: .medium),
+        TaskModel(title: "Backup MacBook", isCompleted: true, priority: .low),
+        TaskModel(title: "Watch WWDC video", isCompleted: false, goalWeek: 29, priority: .low),
+        TaskModel(title: "Meal prep for week", isCompleted: false, dueDate: .now.addingTimeInterval(3600 * 48), priority: .medium),
+        TaskModel(title: "Debug crash in Firebase sync", priority: .high),
+        TaskModel(title: "Sketch icon concepts", isCompleted: true, goalWeek: 28, priority: .low),
+
+        TaskModel(title: "Create Trello roadmap", isCompleted: false, goalWeek: 30, priority: .medium),
+        TaskModel(title: "Test release build", isCompleted: false, dueDate: .now.addingTimeInterval(3600 * 5), priority: .high),
+        TaskModel(title: "Explore SwiftData edge cases", isCompleted: true, priority: .high),
+        TaskModel(title: "Plan weekend trip", details: "Check weather and book train", priority: .low),
+        TaskModel(title: "Sync Firestore backup", isCompleted: false, synced: true, priority: .medium),
+        TaskModel(title: "Check App Store Connect issues", isCompleted: true, priority: .high),
+        TaskModel(title: "Export analytics", priority: .medium),
+        TaskModel(title: "Refill printer ink", isCompleted: false, priority: .low),
+        TaskModel(title: "Finalize blog layout", isCompleted: true, priority: .medium),
+        TaskModel(title: "Send invoice to client", isCompleted: false, dueDate: .now.addingTimeInterval(3600 * 24 * 4), priority: .high)
+    ]
+}
